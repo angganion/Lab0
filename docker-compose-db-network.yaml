@@ -3,20 +3,22 @@ services:
     container_name: db-tk-13
     image: postgres:16.4-alpine
     ports:
-      - '10138:5432'
-    restart: 'no'
+      - "10138:5432"
+    restart: "no"
     labels:
       tk: "13"
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=secret99
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret99
     volumes:
       - db:/var/lib/postgresql/data
     networks:
       - backend-network
+
 volumes:
   db:
     driver: local
+
 networks:
   backend-network:
     name: apap-tk-13_backend-network
